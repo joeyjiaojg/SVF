@@ -224,6 +224,8 @@ mkdir "${BUILD_DIR}"
 cmake -D CMAKE_BUILD_TYPE:STRING="${BUILD_TYPE}" \
     -DSVF_ENABLE_ASSERTIONS:BOOL=true            \
     -DSVF_SANITIZE="${SVF_SANITIZER}"            \
+    -DBUILD_WITH_CLANG:BOOL=${BUILD_WITH_CLANG} \
+    -DLLVM_DIR=${LLVM_DIR} \
     -S "${SVFHOME}" -B "${BUILD_DIR}"
 cmake --build "${BUILD_DIR}" -j ${jobs}
 

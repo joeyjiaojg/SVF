@@ -5,6 +5,10 @@ project("SVF")
 configure_file(${PROJECT_SOURCE_DIR}/.config.in
                ${PROJECT_BINARY_DIR}/include/Util/config.h)
 
+if(BUILD_WITH_CLANG)
+  set(CMAKE_CXX_COMPILER "${LLVM_DIR}/bin/clang++")
+endif()
+
 # We need to match the build environment for LLVM: In particular, we need C++14
 # and the -fno-rtti flag
 set(CMAKE_CXX_STANDARD 14)
